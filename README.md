@@ -18,4 +18,4 @@ index.html?meetingId="<id-of-meeting>"
 
 # Support
 
-For support, visit https://www.videosdk.live/support)[https://www.videosdk.live/support]
+For support, visit https://www.videosdk.live/support)
