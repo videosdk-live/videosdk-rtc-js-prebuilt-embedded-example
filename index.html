@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script src="https://sdk.videosdk.live/embedded/index.js"></script>
+    <script>
+      (async function call() {
+        // used node js server, refer https://github.com/videosdk-live/videosdk-rtc-nodejs-sdk-example
+        const SERVER_URL = "http://localhost:9000";
+
+        // Initialize the factory function
+        const videoMeeting = new VideoSDKMeeting();
+
+        // Generating token before going further
+        const { token } = await (await fetch(`${SERVER_URL}/get-token`)).json();
+
+        // Fetch meetingId if it exists in URL
+        var url = new URL(window.location.href);
+        var paramMeetingID = url.searchParams.get("meetingId");
+
+        // Intilize meetingId from the URL
+        let meetingId = null;
+        if (paramMeetingID != null) {
+          meetingId = paramMeetingID;
+        } else {
+          // Calling API to generate new meetingId
+          const response = await (
+            await fetch(`${SERVER_URL}/create-meeting/`, {
+              method: "POST",
+              body: JSON.stringify({ token: token }), // string or object
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+          ).json();
+          meetingId = response && response.meetingId;
+        }
+
+        // Intilizing default name
+        let name = "Arjun Kava";
+
+        const videoMeetingSpecs = {
+          micEnabled: true,
+          webcamEnabled: true,
+          name,
+          meetingId: meetingId,
+          redirectOnLeave: "https://www.videosdk.live/",
+          chatEnabled: true,
+          screenShareEnabled: true,
+          pollEnabled: true,
+          whiteBoardEnabled: true,
+          participantCanToggleSelfWebcam: true,
+          participantCanToggleSelfMic: true,
+          raiseHandEnabled: true,
+          token: token,
+          containerId: null,
+          recordingEnabled: true,
+          recordingWebhookUrl: "https://www.videosdk.live/callback",
+        };
+        const meeting = await videoMeeting.init(videoMeetingSpecs);
+      })();
+    </script>
+  </body>
+</html>
