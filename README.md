@@ -32,30 +32,40 @@ Visit our official guide for [Browser Support](https://docs.videosdk.live/docs/r
 
 ## Prerequisites
 
-- Just browser
+- Web browser
 
-## Running the Authentication server
+## Getting started
 
-Before running app, you need to run the authentication server
+1. Clone the repo
 
-Use our official [videosdk-rtc-nodejs-sdk-example](https://github.com/videosdk-live/videosdk-rtc-nodejs-sdk-example) to perform server authentication.
+   ```sh
+   $ git clone https://github.com/videosdk-live/videosdk-rtc-js-prebuilt-embedded-example.git
+   $ cd videosdk-rtc-js-prebuilt-embedded-example
+   ```
 
-```sh
-$ git clone https://github.com/videosdk-live/videosdk-rtc-nodejs-sdk-example
-```
+2. Update api key generated from [app.videosdk.live](https://app.videosdk.live) in `index.html`.
 
-Add API Key and Secret in `.env` of your project.
+   ```javascript
+   // ...
 
-```sh
-ZUJONOW_API_KEY=''
-ZUJONOW_SECRET_KEY=''
-ZUJONOW_API_ENDPOINT=https://api.zujonow.com
-```
+   // Set apikey, meetingId and participant name
+   const apiKey = "API KEY GENERATED FROM app.videosdk.live";
+   const meetingId = "milkyway";
+   const name = "John Doe";
 
-Visit, [https://www.videosdk.live/](https://www.videosdk.live/) to generate API keys and secret.
+   // ...
+   ```
+
+3. Install `live-server` or any other http server if you don't already have one.
+
+   ```sh
+   $ npm install -g live-server
+   $ live-server
+   ```
+
+Visit, [https://www.videosdk.live/](https://www.videosdk.live/) to generate API key.
 
 Related
 
 - [Video SDK RTC React App](https://github.com/videosdk-live/videosdk-rtc-react-sdk-example)
 - [Video SDK RTC React Native App](https://github.com/videosdk-live/videosdk-rtc-react-native-sdk-example)
-- [Video SDK RTC Node JS App](https://github.com/videosdk-live/videosdk-rtc-nodejs-sdk-example)

@@ -4,65 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videosdk.live RTC</title>
   </head>
   <body>
-    <script src="https://sdk.videosdk.live/embedded/index.js"></script>
+    <script src="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.1/rtc-js-prebuilt.js"></script>
     <script>
-      (async function call() {
-        // used node js server, refer https://github.com/videosdk-live/videosdk-rtc-nodejs-sdk-example
-        const SERVER_URL = "http://localhost:9000";
+      // Initialize the factory function
+      const meeting = new VideoSDKMeeting();
 
-        // Initialize the factory function
-        const videoMeeting = new VideoSDKMeeting();
+      // Set apikey, meetingId and participant name
+      const apiKey = "API KEY GENERATED FROM app.videosdk.live";
+      const meetingId = "milkyway";
+      const name = "John Doe";
 
-        // Generating token before going further
-        const { token } = await (await fetch(`${SERVER_URL}/get-token`)).json();
+      const config = {
+        name: name,
+        apiKey: apiKey,
+        meetingId: meetingId,
 
-        // Fetch meetingId if it exists in URL
-        var url = new URL(window.location.href);
-        var paramMeetingID = url.searchParams.get("meetingId");
+        containerId: null,
+        redirectOnLeave: "https://www.videosdk.live/",
 
-        // Intilize meetingId from the URL
-        let meetingId = null;
-        if (paramMeetingID != null) {
-          meetingId = paramMeetingID;
-        } else {
-          // Calling API to generate new meetingId
-          const response = await (
-            await fetch(`${SERVER_URL}/create-meeting/`, {
-              method: "POST",
-              body: JSON.stringify({ token: token }), // string or object
-              headers: {
-                "Content-Type": "application/json",
-              },
-            })
-          ).json();
-          meetingId = response && response.meetingId;
-        }
+        micEnabled: true,
+        webcamEnabled: true,
+        participantCanToggleSelfWebcam: true,
+        participantCanToggleSelfMic: true,
 
-        // Intilizing default name
-        let name = "Arjun Kava";
+        chatEnabled: true,
+        screenShareEnabled: true,
+        pollEnabled: true,
+        whiteBoardEnabled: true,
+        raiseHandEnabled: true,
 
-        const videoMeetingSpecs = {
-          micEnabled: true,
-          webcamEnabled: true,
-          name,
-          meetingId: meetingId,
-          redirectOnLeave: "https://www.videosdk.live/",
-          chatEnabled: true,
-          screenShareEnabled: true,
-          pollEnabled: true,
-          whiteBoardEnabled: true,
-          participantCanToggleSelfWebcam: true,
-          participantCanToggleSelfMic: true,
-          raiseHandEnabled: true,
-          token: token,
-          containerId: null,
-          recordingEnabled: true,
-          recordingWebhookUrl: "https://www.videosdk.live/callback",
-        };
-        const meeting = await videoMeeting.init(videoMeetingSpecs);
-      })();
+        recordingEnabled: true,
+        recordingWebhookUrl: "https://www.videosdk.live/callback",
+        participantCanToggleRecording: true,
+      };
+
+      meeting.init(config);
     </script>
   </body>
 </html>
