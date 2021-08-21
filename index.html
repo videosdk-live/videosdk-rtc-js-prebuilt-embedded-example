@@ -13,7 +13,7 @@
       const meeting = new VideoSDKMeeting();
 
       // Set apikey, meetingId and participant name
-      const apiKey = "API KEY GENERATED FROM app.videosdk.live";
+      const apiKey = "<API KEY>"; // generated from app.videosdk.live
       const meetingId = "milkyway";
       const name = "John Doe";
 
@@ -39,6 +39,10 @@
         recordingEnabled: true,
         recordingWebhookUrl: "https://www.videosdk.live/callback",
         participantCanToggleRecording: true,
+
+        brandingEnabled: true,
+        brandLogoURL: "https://picsum.photos/200",
+        brandName: "Awesome startup",
       };
 
       meeting.init(config);
