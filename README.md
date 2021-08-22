@@ -43,13 +43,13 @@ Visit our official guide for [Browser Support](https://docs.videosdk.live/docs/r
    $ cd videosdk-rtc-js-prebuilt-embedded-example
    ```
 
-2. Update api key generated from [app.videosdk.live](https://app.videosdk.live) in `index.html`.
+2. Update api key generated from [app.videosdk.live](https://app.videosdk.live/settings/api-keys) in `index.html`.
 
    ```javascript
    // ...
 
    // Set apikey, meetingId and participant name
-   const apiKey = "API KEY GENERATED FROM app.videosdk.live";
+   const apiKey = "<API KEY>"; // generated from app.videosdk.live
    const meetingId = "milkyway";
    const name = "John Doe";
 
