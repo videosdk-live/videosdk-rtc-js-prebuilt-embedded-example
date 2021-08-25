@@ -7,7 +7,7 @@
     <title>Videosdk.live RTC</title>
   </head>
   <body>
-    <script src="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.1/rtc-js-prebuilt.js"></script>
+    <script src="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.2/rtc-js-prebuilt.js"></script>
     <script>
       // Initialize the factory function
       const meeting = new VideoSDKMeeting();
@@ -43,6 +43,8 @@
         brandingEnabled: true,
         brandLogoURL: "https://picsum.photos/200",
         brandName: "Awesome startup",
+        
+        participantCanLeave: true, // if false, leave button won't be visible
       };
 
       meeting.init(config);
