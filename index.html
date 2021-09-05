@@ -7,7 +7,7 @@
     <title>Videosdk.live RTC</title>
   </head>
   <body>
-    <script src="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.4/rtc-js-prebuilt.js"></script>
+    <script src="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.5/rtc-js-prebuilt.js"></script>
     <script>
       // Initialize the factory function
       const meeting = new VideoSDKMeeting();
@@ -62,6 +62,12 @@
           askToJoin: false, // Ask joined participants for entry in meeting
           toggleParticipantMic: true, // Can toggle other participant's mic
           toggleParticipantWebcam: true, // Can toggle other participant's webcam
+        },
+
+        joinScreen: {
+          visible: true, // Show the join screen ?
+          title: "Daily scrum", // Meeting title
+          meetingUrl: window.location.href, // Meeting joining url
         },
       };
 
