@@ -7,57 +7,59 @@
     <title>Videosdk.live RTC</title>
   </head>
   <body>
-    <script src="https://sdk.videosdk.live/rtc-js-prebuilt/0.1.5/rtc-js-prebuilt.js"></script>
     <script>
-      // Initialize the factory function
-      const meeting = new VideoSDKMeeting();
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      //
+      script.addEventListener("load", function (event) {
+        // Initialize the factory function
+        const meeting = new VideoSDKMeeting();
 
-      // Set apikey, meetingId and participant name
-      const apiKey = "<API KEY>"; // generated from app.videosdk.live
-      const meetingId = "milkyway";
-      const name = "John Doe";
+        // Set apikey, meetingId and participant name
+        const apiKey = "<API KEY>"; // generated from app.videosdk.live
+        const meetingId = "milkyway";
+        const name = "John Doe";
 
-      const config = {
-        name: name,
-        apiKey: apiKey,
-        meetingId: meetingId,
+        const config = {
+          name: name,
+          apiKey: apiKey,
+          meetingId: meetingId,
 
-        containerId: null,
-        redirectOnLeave: "https://www.videosdk.live/",
+          containerId: null,
+          redirectOnLeave: "https://www.videosdk.live/",
 
-        micEnabled: true,
-        webcamEnabled: true,
-        participantCanToggleSelfWebcam: true,
-        participantCanToggleSelfMic: true,
+          micEnabled: true,
+          webcamEnabled: true,
+          participantCanToggleSelfWebcam: true,
+          participantCanToggleSelfMic: true,
 
-        chatEnabled: true,
-        screenShareEnabled: true,
-        pollEnabled: true,
-        whiteBoardEnabled: true,
-        raiseHandEnabled: true,
+          chatEnabled: true,
+          screenShareEnabled: true,
+          pollEnabled: true,
+          whiteBoardEnabled: true,
+          raiseHandEnabled: true,
 
-        recordingEnabled: true,
-        recordingWebhookUrl: "https://www.videosdk.live/callback",
-        participantCanToggleRecording: true,
+          recordingEnabled: true,
+          recordingWebhookUrl: "https://www.videosdk.live/callback",
+          participantCanToggleRecording: true,
 
-        brandingEnabled: true,
-        brandLogoURL: "https://picsum.photos/200",
-        brandName: "Awesome startup",
-        poweredBy: true,
+          brandingEnabled: true,
+          brandLogoURL: "https://picsum.photos/200",
+          brandName: "Awesome startup",
+          poweredBy: true,
 
-        participantCanLeave: true, // if false, leave button won't be visible
+          participantCanLeave: true, // if false, leave button won't be visible
 
-        // Live stream meeting to youtube
-        livestream: {
-          autoStart: true,
-          outputs: [
-            // {
-            //   url: "rtmp://x.rtmp.youtube.com/live2",
-            //   streamKey: "<STREAM KEY FROM YOUTUBE>",
-            // },
-          ],
-        },
-
+          // Live stream meeting to youtube
+          livestream: {
+            autoStart: true,
+            outputs: [
+              // {
+              //   url: "rtmp://x.rtmp.youtube.com/live2",
+              //   streamKey: "<STREAM KEY FROM YOUTUBE>",
+              // },
+            ],
+          },
         permissions: {
           askToJoin: false, // Ask joined participants for entry in meeting
           toggleParticipantMic: true, // Can toggle other participant's mic
@@ -71,7 +73,12 @@
         },
       };
 
-      meeting.init(config);
+        meeting.init(config);
+      });
+
+      script.src =
+        "https://sdk.videosdk.live/rtc-js-prebuilt/0.1.5/rtc-js-prebuilt.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
     </script>
   </body>
 </html>
