@@ -10,7 +10,6 @@ This code sample demonstrates a one-to-one and group video call application buil
 - Inbuilt video and audio quality optimization.
 - Inbuilt chat poll, whiteboard, Q and A support.
 
-![Video API example](./public/prebuilt.jpg)
 
 ## Features
 
