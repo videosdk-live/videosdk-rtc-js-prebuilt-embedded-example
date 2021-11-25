@@ -71,3 +71,4 @@ Related
 - [Video SDK Prebuilt REACT SDK](https://github.com/videosdk-live/videosdk-rtc-react-prebuilt-example)
 - [Video SDK Prebuilt ANGULAR SDK](https://github.com/videosdk-live/videosdk-rtc-angular-prebuilt-example)
 - [Video SDK Prebuilt VUE SDK](https://github.com/videosdk-live/videosdk-rtc-vue-prebuilt-example)
+- [Video SDK Prebuilt React Native SDK](https://github.com/videosdk-live/videosdk-rtc-react-native-prebuilt-ui)
