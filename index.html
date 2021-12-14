@@ -36,12 +36,11 @@
           chatEnabled: true,
           screenShareEnabled: true,
           pollEnabled: true,
-          whiteBoardEnabled: true,
+          whiteboardEnabled: true,
           raiseHandEnabled: true,
 
           recordingEnabled: true,
           recordingWebhookUrl: "https://www.videosdk.live/callback",
-          participantCanToggleRecording: true,
 
           brandingEnabled: true,
           brandLogoURL: "https://picsum.photos/200",
@@ -65,6 +64,11 @@
             askToJoin: false, // Ask joined participants for entry in meeting
             toggleParticipantMic: true, // Can toggle other participant's mic
             toggleParticipantWebcam: true, // Can toggle other participant's webcam
+            removeParticipant: true, // Remove other participant from meeting
+            endMeeting: true, // end meeting for all participant 
+            drawOnWhiteboard: true, // Can Draw on whiteboard
+            toggleWhiteboard: true, // Can toggle whiteboard
+            toggleRecording: true, // Can toggle recording
           },
 
           joinScreen: {
@@ -83,7 +87,7 @@
       });
 
       script.src =
-        "https://sdk.videosdk.live/rtc-js-prebuilt/0.1.15/rtc-js-prebuilt.js";
+        "https://sdk.videosdk.live/rtc-js-prebuilt/0.1.21/rtc-js-prebuilt.js";
       document.getElementsByTagName("head")[0].appendChild(script);
     </script>
   </body>
