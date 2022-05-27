@@ -1,4 +1,5 @@
 # Video SDK No Code Prebuilt App.
+THIS REPO is DEPRECATED. Please refer to https://github.com/videosdk-live/videosdk-rtc-prebuilt-examples
 
 ## What is it?
 
